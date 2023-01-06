@@ -1,0 +1,4 @@
+webhooks:
+- failurePolicy: Fail
+  name: validation.gatekeeper.sh
+
