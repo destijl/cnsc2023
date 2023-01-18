@@ -1,8 +1,8 @@
 IMG = distroless
 TAG = latest
 REGION = us-central1
-PROJECT = gcastle-gke-dev
-REPO = gcastle-test
+PROJECT? = gcastle-gke-dev
+REPO? = gcastle-test
 REGISTRY = ${REGION}-docker.pkg.dev/${PROJECT}/${REPO}
 FULL_PATH = ${REGISTRY}/${IMG}:${TAG}
 
