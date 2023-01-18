@@ -14,6 +14,11 @@ export TERM=xterm
 #  chmod a+x jq
 #fi
 
+if [ ! -f go1.19 ]; then
+  go install golang.org/dl/go1.19@latest
+  go1.19 download
+fi
+
 DEMOMAGIC="demo-magic.sh"
 
 if [ ! -f $DEMOMAGIC ]; then
