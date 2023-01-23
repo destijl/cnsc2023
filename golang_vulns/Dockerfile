@@ -1,4 +1,4 @@
-ARG buildpath=unused_lib
+ARG buildpath=used_lib
 # An old version of go to build with
 FROM golang:1.18.1-buster as builder
 

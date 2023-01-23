@@ -14,9 +14,10 @@ export TERM=xterm
 #  chmod a+x jq
 #fi
 
-if [ ! -f go1.19 ]; then
-  go install golang.org/dl/go1.19@latest
-  go1.19 download
+# Make sure we have go1.18.1 to build the binary
+if [ ! -f go1.18.1 ]; then
+  go install golang.org/dl/go1.18.1@latest
+  go1.18.1 download
 fi
 
 DEMOMAGIC="demo-magic.sh"
