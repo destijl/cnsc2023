@@ -18,3 +18,5 @@ kubectl delete pods deny --wait=false &> /dev/null || true
 #pe "cat fail_closed.yaml"
 #p "kubectl patch validatingwebhookconfigurations.admissionregistration.k8s.io gatekeeper-validating-webhook-configuration --patch-file fail_closed.yaml"
 
+kubectl delete --wait=false -f allowed_repos.yaml &> /dev/null
+

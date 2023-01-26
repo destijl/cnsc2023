@@ -1,0 +1,20 @@
+admissionWhitelistPatterns:
+- namePattern: gcr.io/google_containers/*
+- namePattern: gcr.io/google-containers/*
+- namePattern: k8s.gcr.io/*
+- namePattern: gke.gcr.io/*
+- namePattern: gcr.io/stackdriver-agents/*
+- namePattern: gcr.io/distroless/*
+defaultAdmissionRule:
+  enforcementMode: ENFORCED_BLOCK_AND_AUDIT_LOG
+  evaluationMode: ALWAYS_ALLOW
+etag: '"40pIvzse+z9I"'
+globalPolicyEvaluationMode: ENABLE
+name: projects/gcastle-gke-dev/policy
+updateTime: '2023-01-05T21:42:23.451343Z'
+clusterAdmissionRules:
+  us-central1-c.cnsc2:
+    evaluationMode: REQUIRE_ATTESTATION
+    enforcementMode: ENFORCED_BLOCK_AND_AUDIT_LOG
+    requireAttestationsBy:
+    - projects/gcastle-gke-dev/attestors/is-distroless
