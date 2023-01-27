@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# $Id: $
 # Following
 # https://cloud.google.com/binary-authorization/docs/making-attestations
 # https://cloud.google.com/binary-authorization/docs/creating-attestors-console

@@ -5,15 +5,6 @@ set -o pipefail
 
 export TERM=xterm
 
-# This directory is executable on COS
-#RUNDIR="/home/kubernetes/bin"
-#cd $RUNDIR
-
-#if [ ! -f jq ]; then
-#  curl -sS -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o jq 
-#  chmod a+x jq
-#fi
-
 # Make sure we have go1.18.1 to build the binary
 if [ ! -f go1.18.1 ]; then
   go install golang.org/dl/go1.18.1@latest

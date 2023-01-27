@@ -5,6 +5,7 @@
 *.so
 *.dylib
 *.swp
+*.key
 
 # Test binary, built with `go test -c`
 *.test
@@ -13,6 +14,7 @@
 *.out
 
 demo-magic.sh
+get_helm.sh
 distroless/server
 # Dependency directories (remove the comment below to include it)
 # vendor/
