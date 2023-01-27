@@ -9,7 +9,8 @@ spec:
       - apiGroups: [""]
         kinds: ["Pod"]
     namespaces:
-      - "default"
+      - "enforcing"
   parameters:
     repos:
       - "gcr.io/google-containers/"
+      - "us-central1-docker.pkg.dev/gcastle-gke-dev/gcastle-test/"

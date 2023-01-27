@@ -9,11 +9,11 @@ ZONE="us-central1-c"
 
 gcloud container clusters get-credentials $CLUSTER --zone $ZONE --project $PROJECT &> /dev/null
 
-# Default namespace isn't enforced
-pe "kubectl run allow-unenforced --image=busybox -- /bin/sleep 1" || true
-pe "kubectl run deny -n cosign-enforced --image=busybox -- /bin/sleep 1" || true
+# This demo assumes you've run both the cosign and the gatekeeper setup scripts
+pe "kubectl run deny-outside-image -n enforcing --image=busybox -- /bin/sleep 1" || true
 pe "clear"
-pe "kubectl run allow -n cosign-enforced --image=${CONTAINER}"
+pe "kubectl run deny-non-distroless -n enforcing --image=gcr.io/google-containers/busybox -- /bin/sleep 1" || true
+pe "clear"
+pe "kubectl run allow -n enforcing --image=${CONTAINER}"
 
-kubectl delete -n cosign-enforced --wait=false pods allow &> /dev/null
-kubectl delete --wait=false pods allow-unenforced &> /dev/null
+kubectl delete -n enforcing --wait=false pods --all &> /dev/null || true

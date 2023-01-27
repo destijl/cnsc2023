@@ -3,7 +3,17 @@
 set -o errexit
 set -o pipefail
 
+# Following
+# https://docs.sigstore.dev/cosign/overview/
+# https://docs.sigstore.dev/policy-controller/overview/
+# https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller
+
 CONTAINER="us-central1-docker.pkg.dev/gcastle-gke-dev/gcastle-test/distroless"
+PROJECT="gcastle-gke-dev"
+CLUSTER="cosign-demo"
+ZONE="us-central1-c"
+
+gcloud container clusters get-credentials $CLUSTER --zone $ZONE --project $PROJECT &> /dev/null
 
 go install github.com/sigstore/cosign/cmd/cosign@latest
 
