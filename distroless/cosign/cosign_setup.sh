@@ -34,7 +34,7 @@ cosign generate-key-pair
 cosign sign --key cosign.key $CONTAINER
 cosign verify --key cosign.pub $CONTAINER
 
-kubectl create secret generic cosign -n \
+kubectl create secret generic cosign-distroless -n \
 cosign-system --from-file=cosign.pub=./cosign.pub
 
 kubectl apply -f cosign_image_policy.yaml
