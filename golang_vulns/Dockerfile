@@ -1,20 +1,26 @@
-ARG buildpath=used_lib
 # An old version of go to build with
-FROM golang:1.18.1-buster as builder
+ARG BUILD_IMAGE=golang:1.18.1
+# Distroless static as our base image to remove OS vulns
+ARG BASE_IMAGE=gcr.io/distroless/static:latest
 
-ARG buildpath
+
+# Build the go binary
+FROM $BUILD_IMAGE as builder
+
+ARG BUILD_PATH=used_lib
+
 WORKDIR /
 
-COPY ${buildpath}/go.mod ./
-COPY ${buildpath}/go.sum ./
+COPY ${BUILD_PATH}/go.mod ./
+COPY ${BUILD_PATH}/go.sum ./
 RUN go mod download
 
-COPY ${buildpath}/*.go ./
+COPY ${BUILD_PATH}/*.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o badapp
 
-# An old version of debian buster as a base
-FROM debian:buster-20210208
+# Copy it into our base image
+FROM $BASE_IMAGE
 
 COPY --from=builder /badapp /bin
 
