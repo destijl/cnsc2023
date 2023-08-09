@@ -3,8 +3,8 @@ Three simple golang binaries to demonstrate differences between vulnerability
 scanners. 
 
 All are a simple variation of a "Hello world!" program, with slight differences
-for illustrative purposes. The golang.org/x/crypto module is included in 
-some of these at version v0.0.0-20200427165652-729f1e841bcc, which contains 
+for illustrative purposes. The `golang.org/x/crypto` module is included in 
+some of these at version `v0.0.0-20200427165652-729f1e841bcc`, which contains 
 CVE-2020-29652 in the `NewServerConn` method. More information about this 
 vulnerability can be found at https://pkg.go.dev/vuln/GO-2021-0227. The following three
 directories each build a different go binary:
