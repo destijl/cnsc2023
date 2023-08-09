@@ -31,7 +31,7 @@ go build . -o badapp
 
 To scan the resulting binary, with the `govulncheck` command:
 ```
-govulncheck badapp
+govulncheck --mode=binary badapp
 ```
 
 Note: govulncheck is not compatible with binaries built from versions of golang prior to 1.18.
